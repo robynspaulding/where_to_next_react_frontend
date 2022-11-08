@@ -19,7 +19,6 @@ export function Home() {
   return (
     <div>
       <TripsIndex trips={trips} />
-      <TripsNew />
     </div>
   );
 }

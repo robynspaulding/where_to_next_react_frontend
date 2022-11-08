@@ -10,6 +10,10 @@ export function TripsIndex(props) {
           <Link to={`/trips/${trip.id}`}>{trip.title}</Link>
         </div>
       ))}
+
+      <div>
+        <Link to="/trips/new">Add New Trip</Link>
+      </div>
     </div>
   );
 }

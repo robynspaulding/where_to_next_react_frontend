@@ -1,11 +1,26 @@
-export function TripsShow(props) {
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+export function TripsShow() {
+  const params = useParams();
+  console.log(params);
+  const [trip, setTrip] = useState({});
+
+  const handleShowTrip = () => {
+    axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
+      console.log(response.data);
+      setTrip(response.data);
+    });
+  };
+  useEffect(handleShowTrip, []);
   return (
     <div id="trip-show">
       <h1>Trip Info</h1>
-      <p>{props.trip.title}</p>
-      <img src={props.trip.image_url} />
-      <p>{props.trip.start_time}</p>
-      <p>{props.trip.end_time}</p>
+      <p>{trip.title}</p>
+      <img src={trip.image_url} />
+      <p>{trip.start_time}</p>
+      <p>{trip.end_time}</p>
     </div>
   );
 }

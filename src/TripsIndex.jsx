@@ -5,7 +5,6 @@ export function TripsIndex(props) {
       {props.trips.map((trip) => (
         <div key={trip.id}>
           <p>{trip.title}</p>
-          <button onClick={() => props.onSelectTrip(trip)}>More info</button>
         </div>
       ))}
     </div>

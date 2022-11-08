@@ -19,8 +19,8 @@ export function TripsShow() {
       <h1>Trip Info</h1>
       <p>{trip.title}</p>
       <img src={trip.image_url} />
-      <p>{trip.start_time}</p>
-      <p>{trip.end_time}</p>
+      <p>State Date: {trip.start_time}</p>
+      <p>End Date: {trip.end_time}</p>
     </div>
   );
 }

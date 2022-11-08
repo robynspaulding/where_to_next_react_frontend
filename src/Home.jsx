@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { TripsIndex } from "./TripsIndex";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Home() {
   const [trips, setTrips] = useState([]);
@@ -14,6 +16,8 @@ export function Home() {
 
   return (
     <div>
+      <Signup />
+      <Login />
       <TripsIndex trips={trips} />
     </div>
   );

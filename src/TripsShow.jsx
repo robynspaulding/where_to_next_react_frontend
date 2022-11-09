@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { PlacesNew } from "./PlacesNew";
 
 export function TripsShow() {
   const params = useParams();
@@ -33,6 +34,7 @@ export function TripsShow() {
           </p>
         </div>
       ))}
+      <PlacesNew />
     </div>
   );
 }

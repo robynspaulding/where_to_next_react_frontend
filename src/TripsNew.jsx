@@ -17,10 +17,10 @@ export function TripsNew() {
   };
 
   return (
-    <div id="trip-new">
+    <div id="trip-new" className="card" style={{ width: "18rem;" }}>
       <h5>Add a New Trip</h5>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="card-body" class="form-group">
           Title: <input type="text" name="title" />
         </div>
         <div>
@@ -32,7 +32,9 @@ export function TripsNew() {
         <div>
           End Date: <input type="text" name="end_date" />
         </div>
-        <button type="submit">Add Trip</button>
+        <button className="btn btn-info" type="submit">
+          Add Trip
+        </button>
       </form>
     </div>
   );

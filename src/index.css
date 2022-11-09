@@ -6,3 +6,8 @@ html {
   width: 200px;
   height: auto;
 }
+
+.card-trip {
+  text-align: center;
+  outline: auto;
+}

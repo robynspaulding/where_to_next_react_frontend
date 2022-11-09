@@ -9,12 +9,12 @@ const linkStyle = {
 
 export function TripsIndex(props) {
   return (
-    <div id="trips-index">
+    <div id="trips-index" className="row">
       <h1>All Trips</h1>
       {props.trips.map((trip) => (
-        <div key={trip.id}>
-          <img className="photo" src={trip.image_url} />
-          <p></p>
+        <div className="card-trip" style={{ width: "18rem" }} key={trip.id}>
+          <img className="card-img-top" src={trip.image_url} />
+
           <Link to={`/trips/${trip.id}`}>{trip.title}</Link>
         </div>
       ))}

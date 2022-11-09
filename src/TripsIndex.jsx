@@ -13,6 +13,8 @@ export function TripsIndex(props) {
       <h1>All Trips</h1>
       {props.trips.map((trip) => (
         <div key={trip.id}>
+          <img className="photo" src={trip.image_url} />
+          <p></p>
           <Link to={`/trips/${trip.id}`}>{trip.title}</Link>
         </div>
       ))}

@@ -18,7 +18,7 @@ export function TripsNew() {
 
   return (
     <div id="trip-new">
-      <h1>Add a New Trip</h1>
+      <h5>Add a New Trip</h5>
       <form onSubmit={handleSubmit}>
         <div>
           Title: <input type="text" name="title" />

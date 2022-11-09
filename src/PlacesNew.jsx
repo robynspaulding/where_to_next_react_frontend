@@ -21,7 +21,7 @@ export function PlacesNew(props) {
   };
   return (
     <div id="place=new">
-      <h1>Add a new place to visit on your trip:</h1>
+      <h5>Add a new place to visit on your trip:</h5>
       <form onSubmit={handleSubmit}>
         <div>
           Name of Place: <input type="text" name="name" />

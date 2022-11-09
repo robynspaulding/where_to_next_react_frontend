@@ -1,3 +1,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+.photo {
+  width: 200px;
+  height: auto;
+}

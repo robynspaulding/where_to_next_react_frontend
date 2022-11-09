@@ -17,23 +17,28 @@ export function TripsShow() {
   useEffect(handleShowTrip, []);
 
   return (
-    <div id="trip-show">
+    <div id="trip-show" className="row">
       <h1>Trip Info</h1>
-      <p>{trip.title}</p>
-      <img src={trip.image_url} />
-      <p>State Date: {trip.start_time}</p>
-      <p>End Date: {trip.end_time}</p>
-      {trip.places?.map((place) => (
-        <div key={place.id}>
-          <p> Place: {place.name} </p>
-          <p> Address: {place.address} </p>
-          <p> Description: {place.description} </p>
-          <p>
-            {" "}
-            Dates/Times: {place.start_time} - {place.end_time}{" "}
-          </p>
-        </div>
-      ))}
+      <img className="card-image-top" src={trip.image_url} />
+
+      <h5 className="card-text">{trip.title}</h5>
+      <p className="card-body">
+        Dates/times: {trip.start_time}-{trip.end_time}
+      </p>
+
+      <div>
+        {trip.places?.map((place) => (
+          <div className="card" style={{ width: "10rem;" }} key={place.id}>
+            <p className="card-title"> Place: {place.name} </p>
+            <p className="card-text"> Address: {place.address} </p>
+            <p className="card-body"> Description: {place.description} </p>
+            <p className="card-body">
+              {" "}
+              Dates/Times: {place.start_time} - {place.end_time}{" "}
+            </p>
+          </div>
+        ))}
+      </div>
       <PlacesNew tripId={trip.id} />
     </div>
   );

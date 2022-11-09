@@ -34,7 +34,7 @@ export function TripsShow() {
           </p>
         </div>
       ))}
-      <PlacesNew />
+      <PlacesNew tripId={trip.id} />
     </div>
   );
 }

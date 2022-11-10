@@ -6,7 +6,7 @@ export function PlacesNew(props) {
     axios.post("http://localhost:3000/places.json", params).then((response) => {
       const newPlace = response.data;
       console.log("created new place", newPlace);
-      // window.location.href = "/"
+      window.location.href = "/trips/" + props.tripId;
     });
     console.log(params);
   };
@@ -20,7 +20,7 @@ export function PlacesNew(props) {
     event.target.reset;
   };
   return (
-    <div id="place=new">
+    <div id="place-new">
       <h5>Add a new place to visit on your trip:</h5>
       <form onSubmit={handleSubmit}>
         <div>

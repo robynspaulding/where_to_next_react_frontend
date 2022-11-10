@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { TripsIndex } from "./TripsIndex";
-import { Modal } from "./Modal";
-import { TripsNew } from "./TripsNew";
 
 export function Home() {
   const [trips, setTrips] = useState([]);

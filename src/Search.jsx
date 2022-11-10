@@ -1,13 +1,11 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import React from "react";
 
 export function Search() {
-  // const [q, setQ] = useState("");
   const [results, setResults] = useState([]);
-  // const [location, setLocation] = useState("");
 
   const handleIndexSearch = (params) => {
-    // const params = { q: q, location: location };
     for (const pair of params.entries()) {
       console.log(`${pair[0]}, ${pair[1]}`);
     }
@@ -24,8 +22,6 @@ export function Search() {
     event.target.reset;
   };
 
-  // useEffect(handleIndexSearch, []);
-
   return (
     <div id="search">
       <p></p>
@@ -34,7 +30,7 @@ export function Search() {
           Search: <input type="text" name="q" />
         </div>
         <div>
-          location: <input type="text" name="location" />
+          Location: <input type="text" name="location" />
         </div>
         <button type="submit">Submit</button>
       </form>

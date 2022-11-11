@@ -34,14 +34,16 @@ export function TripsShow() {
                   </div>
                   {trip.places?.map((place) => (
                     <div className="card" style={{ width: "10rem;" }} key={place.id}>
-                      <p className="card-title"> Place: {place.name} </p>
-                      <p className="card-text"> Address: {place.address} </p>
-                      <p className="card-body"> Description: {place.description} </p>
-                      <p className="card-body">
-                        {" "}
-                        Dates/Times: {place.start_time} - {place.end_time}{" "}
-                      </p>
-                      <button className="btn btn-info">Does something</button>
+                      <div className="card-body">
+                        <p> Visiting: {place.name} </p>
+                        <p> Address: {place.address} </p>
+                        <p> Description: {place.description} </p>
+                        <p>
+                          {" "}
+                          Dates/Times: {place.start_time} - {place.end_time}{" "}
+                        </p>
+                        <button className="btn btn-info">Does something</button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -50,8 +52,11 @@ export function TripsShow() {
           </div>
         </div>
       </div>
-
+      <p></p>
+      <p></p>
       <PlacesNew tripId={trip.id} />
+      <p></p>
+      <p></p>
       <Search />
     </div>
   );

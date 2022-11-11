@@ -11,17 +11,44 @@ html {
   height: auto;
 }
 
+/* this is the index card */
 .card-trip {
   text-align: center;
-  outline: auto;
-  margin-left: 40%;
+  background-color: rgba(148, 214, 211, 0.724);
+  margin: auto;
+}
+.card-image-index {
+  width: 250px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+/* this is the show image */
+.card-image-top {
+  width: 400px;
   margin-bottom: 5%;
 }
 
-.card-image-top {
-  width: 400px;
-  height: auto;
-}
+/* TripsNew, TripsShow, signup and login */
 .card-body {
   text-align: center;
+  background-color: rgba(240, 248, 255, 0.755);
 }
+
+.card-place-new {
+  background-color: rgba(252, 228, 228, 0.821);
+}
+.card-body-place {
+  padding-left: 5%;
+}
+
+.card-search {
+  background-color: rgba(194, 255, 255, 0.744);
+}
+
+.card-body-new {
+  background-color: rgba(127, 244, 255, 0.634);
+  text-align: center;
+  margin: 15%;
+}
+

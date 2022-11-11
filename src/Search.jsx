@@ -26,16 +26,20 @@ export function Search() {
   // useEffect(handleIndexSearch, []);
 
   return (
-    <div id="search">
-      <p></p>
+    <div id="search" className="card-search">
+      <h5>Use this search bar to find things in your location:</h5>
       <form onSubmit={handleSubmit}>
-        <div>
-          Search: <input type="text" name="q" />
+        <div class="card-body-place">
+          <div>
+            Search: <input type="text" name="q" />
+          </div>
+          <div>
+            Location: <input type="text" name="location" />
+          </div>
+          <button className="btn btn-outline-dark" type="submit">
+            Submit
+          </button>
         </div>
-        <div>
-          Location: <input type="text" name="location" />
-        </div>
-        <button type="submit">Submit</button>
       </form>
       <div>
         {results.map((result) => (

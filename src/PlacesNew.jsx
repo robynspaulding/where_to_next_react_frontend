@@ -20,25 +20,29 @@ export function PlacesNew(props) {
     event.target.reset;
   };
   return (
-    <div id="place-new">
+    <div className="card-place-new" id="place-new">
       <h5>Add a new place to visit on your trip:</h5>
       <form onSubmit={handleSubmit}>
-        <div>
-          Name of Place: <input type="text" name="name" />
+        <div class="card-body-place">
+          <div>
+            Name of Place: <input type="text" name="name" />
+          </div>
+          <div>
+            Address: <input type="text" name="address" />
+          </div>
+          <div>
+            Description: <input type="text" name="description" />
+          </div>
+          <div>
+            Start date/time: <input type="text" name="start_time" />
+          </div>
+          <div>
+            End date/time: <input type="text" name="end_time" />
+          </div>
+          <button type="submit" className="btn btn-outline-dark">
+            Add Place to Trip
+          </button>
         </div>
-        <div>
-          Address: <input type="text" name="address" />
-        </div>
-        <div>
-          Description: <input type="text" name="description" />
-        </div>
-        <div>
-          Start date/time: <input type="text" name="start_time" />
-        </div>
-        <div>
-          End date/time: <input type="text" name="end_time" />
-        </div>
-        <button type="submit">Add Place to Trip</button>
       </form>
     </div>
   );

@@ -17,24 +17,26 @@ export function TripsNew() {
   };
 
   return (
-    <div id="trip-new" className="card" style={{ width: "18rem;" }}>
+    <div id="trip-new">
       <h5>Add a New Trip</h5>
       <form onSubmit={handleSubmit}>
-        <div className="card-body" class="form-group">
-          Title: <input type="text" name="title" />
+        <div className="card-body-new" style={{ width: "18rem" }}>
+          <div>
+            Title: <input type="text" name="title" />
+          </div>
+          <div>
+            Image: <input type="text" name="image_url" />
+          </div>
+          <div>
+            State Date: <input type="text" name="start_date" />
+          </div>
+          <div>
+            End Date: <input type="text" name="end_date" />
+          </div>
+          <button className="btn btn-outline-dark" type="submit">
+            Add Trip
+          </button>
         </div>
-        <div>
-          Image: <input type="text" name="image_url" />
-        </div>
-        <div>
-          State Date: <input type="text" name="start_date" />
-        </div>
-        <div>
-          End Date: <input type="text" name="end_date" />
-        </div>
-        <button className="btn btn-info" type="submit">
-          Add Trip
-        </button>
       </form>
     </div>
   );

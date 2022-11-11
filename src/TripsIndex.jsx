@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const linkStyle = {
   margin: "1rem",
-  textDecoration: "none",
+  textDecoration: "underline",
   color: "teal",
   fontSize: "1.8rem",
 };
@@ -10,6 +10,12 @@ const linkStyle = {
 export function TripsIndex(props) {
   return (
     <div id="trips-index" className="row">
+      <div>
+        <Link to="/trips/new" style={linkStyle}>
+          Add New Trip
+        </Link>
+      </div>
+
       <h1>All Trips</h1>
       {props.trips.map((trip) => (
         <div className="card-trip" style={{ width: "18rem" }} key={trip.id}>
@@ -18,12 +24,6 @@ export function TripsIndex(props) {
           <Link to={`/trips/${trip.id}`}>{trip.title}</Link>
         </div>
       ))}
-
-      <div>
-        <Link to="/trips/new" style={linkStyle}>
-          Add New Trip
-        </Link>
-      </div>
     </div>
   );
 }

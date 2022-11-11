@@ -19,10 +19,10 @@ export function TripsShow() {
   useEffect(handleShowTrip, []);
 
   return (
-    <div id="trip-show" className="row">
+    <div id="trip-show" className="row justify-content-center">
       <h1>Trip Info</h1>
-      <div class="row">
-        <div class="col-sm-6">
+      <div class="row justify-content-center">
+        <div class="col-sm-6 justify-content-center">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">{trip.title}</h5>

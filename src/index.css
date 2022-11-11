@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#root {
+  background-image: url('./assets/passport-backgroun-img.png');
+}
+
 .photo {
   width: 200px;
   height: auto;
@@ -10,4 +14,14 @@ html {
 .card-trip {
   text-align: center;
   outline: auto;
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
+
+.card-image-top {
+  width: 400px;
+  height: auto;
+}
+.card-body {
+  text-align: center;
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 export function Search() {
@@ -11,7 +11,8 @@ export function Search() {
     }
     axios.post("http://localhost:3000/search.json", params).then((response) => {
       console.log(response.data);
-      setResults(response.data);
+      console.log(response.data.local_results.places);
+      setResults(response.data.local_results.places);
     });
   };
 
@@ -21,6 +22,8 @@ export function Search() {
     handleIndexSearch(params);
     event.target.reset;
   };
+
+  // useEffect(handleIndexSearch, []);
 
   return (
     <div id="search">
@@ -34,6 +37,14 @@ export function Search() {
         </div>
         <button type="submit">Submit</button>
       </form>
+      <div>
+        {results.map((result) => (
+          <div>
+            <p>{result.title}</p>
+            <p>Address: {result.address}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

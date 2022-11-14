@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlacesNew } from "./PlacesNew";
 import { Search } from "./Search";
-
+import format from "date-fns/format";
 export function TripsShow() {
   const params = useParams();
   console.log(params);
@@ -14,6 +14,13 @@ export function TripsShow() {
       console.log(response.data);
       setTrip(response.data);
     });
+  };
+  const formatTime = (time) => {
+    if (time) {
+      return format(new Date(time), "MMMM dd yyyy, p");
+    } else {
+      return null;
+    }
   };
 
   useEffect(handleShowTrip, []);
@@ -27,7 +34,7 @@ export function TripsShow() {
             <div class="card-body">
               <h5 class="card-title">{trip.title}</h5>
               <p class="card-text">
-                Dates/times: {trip.start_time}-{trip.end_time}
+                Dates/times: {formatTime(trip.start_time)}-{formatTime(trip.end_time)}
                 <div>
                   <div>
                     <img className="card-image-top" src={trip.image_url} />
@@ -38,9 +45,11 @@ export function TripsShow() {
                         <p> Visiting: {place.name} </p>
                         <p> Address: {place.address} </p>
                         <p> Description: {place.description} </p>
+                        <p className="card-place-image">
+                          Image: <img src={place.image_url} />
+                        </p>
                         <p>
-                          {" "}
-                          Dates/Times: {place.start_time} - {place.end_time}{" "}
+                          Dates/Times: {formatTime(place.start_time)} - {formatTime(place.end_time)}
                         </p>
                         <button className="btn btn-info">Does something</button>
                       </div>

@@ -1,4 +1,6 @@
 import axios from "axios";
+import React, { useState } from "react";
+import DateTimePicker from "react-datetime-picker";
 
 export function PlacesNew(props) {
   const handleCreatePlace = (params) => {
@@ -18,6 +20,8 @@ export function PlacesNew(props) {
     handleCreatePlace(params);
     event.target.reset;
   };
+
+  const [value, onChange] = useState(new Date());
   return (
     <div className="card-place-new" id="place-new">
       <h5>Add a new place to visit on your trip:</h5>
@@ -33,11 +37,22 @@ export function PlacesNew(props) {
             Description: <input type="text" name="description" />
           </div>
           <div>
+            Image_url:
+            <input type="text" name="image_url" />
+          </div>
+          {/* <div>
             Start date/time: <input type="text" name="start_time" />
           </div>
           <div>
             End date/time: <input type="text" name="end_time" />
+          </div> */}
+          <div>
+            Start date/time: <DateTimePicker onChange={onChange} value={value} name="start_time" />
           </div>
+          <div>
+            End date/time: <DateTimePicker onChange={onChange} value={value} name="end_time" />
+          </div>
+
           <button type="submit" className="btn btn-outline-dark">
             Add Place to Trip
           </button>

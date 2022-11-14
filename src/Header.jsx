@@ -35,6 +35,11 @@ export function Header() {
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/trips/new">
+              Add New Trip
+            </a>
+          </li>
+          <li class="nav-item">
             <LogoutLink />
           </li>
         </ul>

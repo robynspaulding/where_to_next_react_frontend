@@ -23,8 +23,6 @@ export function Search() {
     event.target.reset;
   };
 
-  // useEffect(handleIndexSearch, []);
-
   return (
     <div id="search" className="card-search">
       <h5>Use this search bar to find things in your location:</h5>

@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
 const linkStyle = {
-  margin: "1rem",
+  // margin: "10rem",
   textDecoration: "underline",
-  color: "teal",
+  color: "black",
   fontSize: "1.8rem",
 };
 
 const linkStyle2 = {
-  margin: "1rem",
   textDecoration: "underline",
   color: "black",
   fontSize: "1rem",

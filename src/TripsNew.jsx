@@ -18,9 +18,9 @@ export function TripsNew() {
 
   return (
     <div id="trip-new">
-      <h5>Add a New Trip</h5>
       <form onSubmit={handleSubmit}>
-        <div className="card-body-new" style={{ width: "18rem" }}>
+        <div className="card-body-new">
+          <h5>Add a New Trip</h5>
           <div>
             Title: <input type="text" name="title" />
           </div>

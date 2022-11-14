@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import { PlacesNew } from "./PlacesNew";
 import { Search } from "./Search";
 import format from "date-fns/format";
+import { Modal } from "./Modal";
+import { UpdatePlace } from "./UpdatePlace";
+
 export function TripsShow() {
   const params = useParams();
   console.log(params);
@@ -22,6 +25,7 @@ export function TripsShow() {
       return null;
     }
   };
+  const [show, setShow] = useState(false);
 
   useEffect(handleShowTrip, []);
 
@@ -52,7 +56,10 @@ export function TripsShow() {
                         <p>
                           Dates/Times: {formatTime(place.start_time)} - {formatTime(place.end_time)}
                         </p>
-                        <button className="btn btn-info">Does something</button>
+                        <button onClick={() => setShow(true)}>Update Place</button>
+                        <Modal onClose={() => setShow(false)} show={show}>
+                          <UpdatePlace />
+                        </Modal>
                       </div>
                     </div>
                   ))}

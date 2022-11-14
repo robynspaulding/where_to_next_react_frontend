@@ -25,7 +25,7 @@ export function Search() {
 
   return (
     <div id="search" className="card-search">
-      <h5>Use this search bar to find things in your location:</h5>
+      <h5>Use this search bar see the top three results in your area:</h5>
       <form onSubmit={handleSubmit}>
         <div class="card-body-place">
           <div>
@@ -42,7 +42,7 @@ export function Search() {
       <div>
         {results.map((result) => (
           <div>
-            <p>{result.title}</p>
+            <h4>Name: {result.title}</h4>
             <p>Address: {result.address}</p>
           </div>
         ))}

@@ -10,7 +10,7 @@ const linkStyle = {
 const linkStyle2 = {
   textDecoration: "underline",
   color: "black",
-  fontSize: "1rem",
+  fontSize: "1.5rem",
 };
 
 export function TripsIndex(props) {

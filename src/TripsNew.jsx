@@ -1,4 +1,6 @@
 import axios from "axios";
+import React, { useState } from "react";
+import DateTimePicker from "react-datetime-picker";
 
 export function TripsNew() {
   const handleCreateTrip = (params) => {
@@ -8,6 +10,9 @@ export function TripsNew() {
       window.location.href = "/";
     });
   };
+
+  const [start, onChangeStart] = useState(new Date());
+  const [end, onChangeEnd] = useState(new Date());
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,10 +33,10 @@ export function TripsNew() {
             Image: <input type="text" name="image_url" />
           </div>
           <div>
-            State Date: <input type="text" name="start_date" />
+            Start date/time: <DateTimePicker onChange={onChangeStart} value={start} name="start_time" />
           </div>
           <div>
-            End Date: <input type="text" name="end_date" />
+            End date/time: <DateTimePicker onChange={onChangeEnd} value={end} name="end_time" />
           </div>
           <button className="btn btn-outline-dark" type="submit">
             Add Trip

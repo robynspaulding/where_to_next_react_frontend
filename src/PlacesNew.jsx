@@ -21,7 +21,9 @@ export function PlacesNew(props) {
     event.target.reset;
   };
 
-  const [value, onChange] = useState(new Date());
+  const [start, onChangeStart] = useState(new Date());
+  const [end, onChangeEnd] = useState(new Date());
+
   return (
     <div className="card-place-new" id="place-new">
       <h5>Add a new place to visit on your trip:</h5>
@@ -40,17 +42,11 @@ export function PlacesNew(props) {
             Image_url:
             <input type="text" name="image_url" />
           </div>
-          {/* <div>
-            Start date/time: <input type="text" name="start_time" />
+          <div>
+            Start date/time: <DateTimePicker onChange={onChangeStart} value={start} name="start_time" />
           </div>
           <div>
-            End date/time: <input type="text" name="end_time" />
-          </div> */}
-          <div>
-            Start date/time: <DateTimePicker onChange={onChange} value={value} name="start_time" />
-          </div>
-          <div>
-            End date/time: <DateTimePicker onChange={onChange} value={value} name="end_time" />
+            End date/time: <DateTimePicker onChange={onChangeEnd} value={end} name="end_time" />
           </div>
 
           <button type="submit" className="btn btn-outline-dark">

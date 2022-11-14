@@ -43,11 +43,12 @@ export function TripsShow() {
                     <div className="card" style={{ width: "10rem;" }} key={place.id}>
                       <div className="card-body">
                         <p> Visiting: {place.name} </p>
+                        <p className="card-place-image">
+                          <img src={place.image_url} />
+                        </p>
                         <p> Address: {place.address} </p>
                         <p> Description: {place.description} </p>
-                        <p className="card-place-image">
-                          Image: <img src={place.image_url} />
-                        </p>
+
                         <p>
                           Dates/Times: {formatTime(place.start_time)} - {formatTime(place.end_time)}
                         </p>

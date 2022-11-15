@@ -20,7 +20,7 @@ export function TripsShow() {
   };
   const formatTime = (time) => {
     if (time) {
-      return formatInTimeZone(new Date(time), "America/New_York", "MM-dd-yyyy H:mm zzz");
+      return formatInTimeZone(new Date(time), "America/New_York", "MM-dd-yyyy HH:mm zzz");
     } else {
       return null;
     }
@@ -38,7 +38,9 @@ export function TripsShow() {
             <div class="card-body">
               <h5 class="card-title">{trip.title}</h5>
               <p class="card-text">
-                Dates/times: {formatTime(trip.start_time)}-{formatTime(trip.end_time)}
+                <div> Start date:{formatTime(trip.start_time)} </div>
+                <div>End date:{formatTime(trip.end_time)}</div>
+
                 <div>
                   <div>
                     <img className="card-image-top" src={trip.image_url} />
@@ -52,10 +54,7 @@ export function TripsShow() {
                         </p>
                         <p> Address: {place.address} </p>
                         <p> Description: {place.description} </p>
-
-                        <p>
-                          Dates/Times: {formatTime(place.start_time)} - {formatTime(place.end_time)}
-                        </p>
+                        <p>Start: {formatTime(place.start_time)} </p> <p> End: {formatTime(place.end_time)}</p>
                         <button onClick={() => setShow(true)}>Update Place</button>
                         <Modal onClose={() => setShow(false)} show={show}>
                           <UpdatePlace />

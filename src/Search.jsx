@@ -20,7 +20,6 @@ export function Search() {
     event.preventDefault();
     const params = new FormData(event.target);
     handleIndexSearch(params);
-    event.target.reset;
   };
 
   return (
@@ -40,10 +39,22 @@ export function Search() {
         </div>
       </form>
       <div>
+        <p></p>
         {results.map((result) => (
           <div>
-            <h4>Name: {result.title}</h4>
-            <p>Address: {result.address}</p>
+            <h5>Name: {result.title}</h5>
+            <p>
+              Address: {result.address}
+              <p>
+                <p>
+                  Hours: {result.hours}
+                  <p>
+                    Description: {result.description}
+                    <p>Rating: {result.rating}</p>
+                  </p>
+                </p>
+              </p>
+            </p>
           </div>
         ))}
       </div>

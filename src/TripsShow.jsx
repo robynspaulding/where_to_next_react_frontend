@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlacesNew } from "./PlacesNew";
 import { Search } from "./Search";
-import format from "date-fns/format";
+import { formatInTimeZone } from "date-fns-tz";
 import { Modal } from "./Modal";
 import { UpdatePlace } from "./UpdatePlace";
 
@@ -20,7 +20,7 @@ export function TripsShow() {
   };
   const formatTime = (time) => {
     if (time) {
-      return format(new Date(time), "MMMM dd yyyy, p");
+      return formatInTimeZone(new Date(time), "America/New_York", "MM-dd-yyyy H:mm zzz");
     } else {
       return null;
     }

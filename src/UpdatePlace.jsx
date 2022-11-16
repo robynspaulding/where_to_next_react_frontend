@@ -32,7 +32,9 @@ export function UpdatePlace() {
         <div>
           End date/time: <DateTimePicker onChange={onChangeEnd} value={end} name="end_time" />
         </div>
-        <button type="submit">Update</button>
+        <button className="btn btn-outline-dark" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );

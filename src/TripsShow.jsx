@@ -55,7 +55,9 @@ export function TripsShow() {
                         <p> Address: {place.address} </p>
                         <p> Description: {place.description} </p>
                         <p>Start: {formatTime(place.start_time)} </p> <p> End: {formatTime(place.end_time)}</p>
-                        <button onClick={() => setShow(true)}>Update Place</button>
+                        <button className="btn btn-outline-dark" onClick={() => setShow(true)}>
+                          Update Place
+                        </button>
                         <Modal onClose={() => setShow(false)} show={show}>
                           <UpdatePlace />
                         </Modal>

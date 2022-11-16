@@ -50,10 +50,7 @@ export function Search() {
                   Hours: {result.hours}
                   <p>
                     Description: {result.description}
-                    <p>
-                      Rating: {result.rating}
-                      {/* <p>Image: {result.thumbnail}</p> */}
-                    </p>
+                    <p>Rating: {result.rating}</p>
                   </p>
                 </p>
               </p>

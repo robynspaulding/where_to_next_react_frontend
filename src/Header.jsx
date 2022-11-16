@@ -19,11 +19,6 @@ export function Header() {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">
-              All Trips
-            </a>
-          </li>
           {localStorage.jwt === undefined ? (
             <>
               <li class="nav-item">
@@ -38,15 +33,22 @@ export function Header() {
               </li>
             </>
           ) : (
-            <li class="nav-item">
-              <a class="nav-link" href="/trips/new">
-                Add New Trip
-              </a>
-            </li>
+            <>
+              <li class="nav-item active">
+                <a class="nav-link" href="/">
+                  All Trips
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/trips/new">
+                  Add New Trip
+                </a>
+              </li>
+              <li class="nav-item">
+                <LogoutLink />
+              </li>
+            </>
           )}
-          <li class="nav-item">
-            <LogoutLink />
-          </li>
         </ul>
       </div>
     </nav>

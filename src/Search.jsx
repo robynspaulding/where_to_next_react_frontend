@@ -52,7 +52,7 @@ export function Search() {
                     Description: {result.description}
                     <p>
                       Rating: {result.rating}
-                      <p>Image: {result.thumbnail}</p>
+                      {/* <p>Image: {result.thumbnail}</p> */}
                     </p>
                   </p>
                 </p>

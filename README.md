@@ -1,6 +1,6 @@
 # Where To Next?
 React.js Frontend
-
+![screenshot](screenshot.png)
 
 Where To Next? is a travel planning app that allows a user to create a trip and add places they want to visit while they are on that trip. Within the trip show page -or rather where you can see the details of the trip and the places you want to go - there is a search bar that accesses a third-party API called <a href="https://serpapi.com/"> SerpApi </a> which scrapes Google results based on your search query and location input. 
 

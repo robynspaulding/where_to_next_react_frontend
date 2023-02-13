@@ -9,7 +9,6 @@ import { Signup } from "./Signup";
 
 export function Home() {
   const [trips, setTrips] = useState([]);
-  const [isTripShowVisable, setIsTripShowVisable] = useState(false);
   const [isTripUpdateVisable, setIsTripUpdateVisable] = useState(false);
   const [currentTrip, setCurrentTrip] = useState({});
 
@@ -20,23 +19,12 @@ export function Home() {
     });
   };
 
-  const handleShowTripPlaces = (trip) => {
-    // setIsTripShowVisable(true);
-    setCurrentTrip(trip);
-  };
-
-  const handleHideTrip = () => {
-    setIsTripShowVisable(false);
-  };
-  //____________________________
-
-  //Update Trip
   const handleShowUpdateTrip = (trip) => {
     setIsTripUpdateVisable(true);
     setCurrentTrip(trip);
   };
 
-  const handleHideTripUpdate = () => {
+  const handleHideUpdatedTrip = () => {
     setIsTripUpdateVisable(false);
   };
 
@@ -61,7 +49,6 @@ export function Home() {
   const handleDestroyTrip = (trip) => {
     axios.delete("http://localhost:3000/trips/" + trip.id + ".json").then((response) => {
       setTrips(trips.filter((t) => t.id !== trip.id));
-      handleHideTrip();
     });
   };
   //____________________________
@@ -80,15 +67,11 @@ export function Home() {
         <>
           <TripsIndex
             trips={trips}
-            onSelectTrip={handleShowTripPlaces}
             onSelectUpdateTrip={handleShowUpdateTrip}
-            trip={currentTrip}
+            // trip={currentTrip}
             onDestroyTrip={handleDestroyTrip}
           />
-          <Modal show={isTripShowVisable} onClose={handleHideTrip}>
-            <TripsShow trip={currentTrip} />
-          </Modal>
-          <Modal show={isTripUpdateVisable} onClose={handleHideTripUpdate}>
+          <Modal show={isTripUpdateVisable} onClose={handleHideUpdatedTrip}>
             <TripsUpdate trip={currentTrip} onUpdateTrip={handleUpdateTrip} />
           </Modal>
         </>

@@ -46,7 +46,7 @@ export function TripsUpdate(props) {
             </ListGroup.Item>
           </ListGroup>
           <div className="d-grid gap-2">
-            <Button variant="success" size="md" type="submit">
+            <Button variant="primary" size="md" type="submit">
               Update Trip
             </Button>
           </div>

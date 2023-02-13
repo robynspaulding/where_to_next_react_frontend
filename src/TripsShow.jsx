@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlacesNew } from "./PlacesNew";
 import { Search } from "./Search";
-import { Modal } from "./Modal";
-import { UpdatePlace } from "./UpdatePlace";
 import moment from "moment";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -16,16 +14,14 @@ export function TripsShow() {
   console.log(params);
   const [trip, setTrip] = useState({});
 
-  const handleShowTripPlaces = () => {
+  const handleShowUpdateTrip = () => {
     axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
       console.log(response.data);
       setTrip(response.data);
     });
   };
 
-  const [show, setShow] = useState(false);
-
-  useEffect(handleShowTripPlaces, []);
+  useEffect(handleShowUpdateTrip, []);
 
   return (
     <div id="trip-show" className="row justify-content-center">

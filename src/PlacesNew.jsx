@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from "moment";
-
+import Button from "react-bootstrap/Button";
 export function PlacesNew(props) {
   const handleCreatePlace = (params) => {
     axios.post("http://localhost:3000/places.json", params).then((response) => {
@@ -58,9 +57,11 @@ export function PlacesNew(props) {
             <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
           </div>
 
-          <button type="submit" className="btn btn-outline-success">
-            Add Place to Trip
-          </button>
+          <div className="d-grid gap-2">
+            <Button variant="success" size="md" type="submit">
+              Add Place to Trip
+            </Button>
+          </div>
         </div>
       </form>
     </div>

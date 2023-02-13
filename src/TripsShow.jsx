@@ -36,7 +36,7 @@ export function TripsShow() {
         </Card.Body>
       </Card>
       <h1>Places to Visit</h1>
-      <Row xs={1} md={3} className="g-4">
+      <Row xs={1} md={2} className="g-4">
         {trip.places?.map((place) => (
           <Col>
             <Card>
@@ -44,13 +44,16 @@ export function TripsShow() {
               <Card.Body>
                 <Card.Title>{place.name}</Card.Title>
                 <Card.Text>
-                  <p>{place.id}</p>
-                  {place.address}
+                  {/* <p>{place.id}</p> */}
+                  address: {place.address}
+                  <p></p>
+                  date: {moment(place.start_time).format("LL")} - {moment(place.end_time).format("LL")}
                   <p></p>
                   {place.description}
                   <p></p>
-                  date: {moment(place.start_time).format("LL")} - {moment(place.end_time).format("LL")}
                 </Card.Text>
+                <div>!update and delete are in progress!</div>
+
                 <Button
                   variant="outline-primary"
                   size="sm"

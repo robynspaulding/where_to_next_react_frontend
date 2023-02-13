@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 export function Search() {
   const [results, setResults] = useState([]);
@@ -33,9 +34,12 @@ export function Search() {
           <div>
             Location: <input type="text" name="location" />
           </div>
-          <button className="btn btn-outline-dark" type="submit">
-            Submit
-          </button>
+          <p></p>
+          <div className="d-grid gap-2">
+            <Button variant="success" size="md" type="submit">
+              Search
+            </Button>
+          </div>
         </div>
       </form>
       <div>

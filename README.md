@@ -5,7 +5,7 @@ React.js Frontend
 Where To Next? is a travel planning app that allows plan their trips along with the places they want to see while they are on that trip. 
 While looking at all the fun places to visit there is a search bar that accesses a third-party API called <a href="https://serpapi.com/"> SerpApi </a> which scrapes Google results based on your search query and location input. This way users can look up the fun local things to do while they're there without leaving the app! 
 
-<img src="images/TripsIndex.png"> <img src="images/TripsUpdate.png"> <img src="images/TripsShow.png">
+<img src="images/TripsIndex.png"> <img src="images/TripsUpdate.png"> <img src="images/TripsShow.png" height="800">
 
 # Technology used:
 - <a href="https://github.com/robynspaulding/where_to_next_react_frontend">React frontend</a>

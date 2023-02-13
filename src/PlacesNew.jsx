@@ -58,7 +58,7 @@ export function PlacesNew(props) {
             <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
           </div>
 
-          <button type="submit" className="btn btn-outline-dark">
+          <button type="submit" className="btn btn-outline-success">
             Add Place to Trip
           </button>
         </div>

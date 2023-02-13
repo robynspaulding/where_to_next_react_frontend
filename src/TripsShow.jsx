@@ -3,79 +3,99 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PlacesNew } from "./PlacesNew";
 import { Search } from "./Search";
-import { formatInTimeZone } from "date-fns-tz";
 import { Modal } from "./Modal";
 import { UpdatePlace } from "./UpdatePlace";
+import moment from "moment";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export function TripsShow() {
   const params = useParams();
   console.log(params);
   const [trip, setTrip] = useState({});
 
-  const handleShowTrip = () => {
+  const handleShowTripPlaces = () => {
     axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
       console.log(response.data);
       setTrip(response.data);
     });
   };
-  const formatTime = (time) => {
-    if (time) {
-      return formatInTimeZone(new Date(time), "America/New_York", "MM-dd-yyyy HH:mm zzz");
-    } else {
-      return null;
-    }
-  };
+
   const [show, setShow] = useState(false);
 
-  useEffect(handleShowTrip, []);
+  useEffect(handleShowTripPlaces, []);
 
   return (
     <div id="trip-show" className="row justify-content-center">
       <h1>Trip Info</h1>
-      <div class="row justify-content-center">
-        <div class="col-sm-6 justify-content-center">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{trip.title}</h5>
-              <p class="card-text">
-                <div> Start date:{formatTime(trip.start_time)} </div>
-                <div>End date:{formatTime(trip.end_time)}</div>
+      <Card style={{ width: "30rem" }}>
+        <Card.Img variant="top" src={trip.image_url} />
+        <Card.Body>
+          <Card.Title>{trip.title}</Card.Title>
+          <Card.Text>
+            {moment(trip.start_time).format("LL")} - {moment(trip.end_time).format("LL")}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <h1>Places to Visit</h1>
+      <Row xs={1} md={3} className="g-4">
+        {trip.places?.map((place) => (
+          <Col>
+            <Card>
+              <Card.Img variant="top" src={place.image_url} />
+              <Card.Body>
+                <Card.Title>{place.name}</Card.Title>
+                <Card.Text>
+                  <p>{place.id}</p>
+                  {place.address}
+                  <p></p>
+                  {place.description}
+                  <p></p>
+                  date: {moment(place.start_time).format("LL")} - {moment(place.end_time).format("LL")}
+                </Card.Text>
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  // onClick={() => }
+                >
+                  Update Place Info
+                </Button>
+                <p></p>
+                <Button
+                  className="justify-content-end"
+                  variant="outline-danger"
+                  size="sm"
+                  // onClick={() => }
+                >
+                  Delete Place
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
 
-                <div>
-                  <div>
-                    <img className="card-image-top" src={trip.image_url} />
-                  </div>
-                  {trip.places?.map((place) => (
-                    <div className="card" style={{ width: "10rem;" }} key={place.id}>
-                      <div className="card-body">
-                        <p> Visiting: {place.name} </p>
-                        <p className="card-place-image">
-                          <img src={place.image_url} />
-                        </p>
-                        <p> Address: {place.address} </p>
-                        <p> Description: {place.description} </p>
-                        <p>Start: {formatTime(place.start_time)} </p> <p> End: {formatTime(place.end_time)}</p>
-                        <button className="btn btn-outline-dark" onClick={() => setShow(true)}>
-                          Update Place
-                        </button>
-                        <Modal onClose={() => setShow(false)} show={show}>
-                          <UpdatePlace />
-                        </Modal>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <p></p>
       <p></p>
-      <PlacesNew tripId={trip.id} />
+      <Card style={{ width: "30rem" }}>
+        <Card.Body>
+          <Card.Text>
+            <PlacesNew tripId={trip.id} />
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      <Card style={{ width: "30rem" }}>
+        <Card.Body>
+          <Card.Text>
+            <Search />
+          </Card.Text>
+        </Card.Body>
+      </Card>
       <p></p>
       <p></p>
-      <Search />
     </div>
   );
 }

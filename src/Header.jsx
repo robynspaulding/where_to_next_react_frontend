@@ -1,56 +1,47 @@
-import { LogoutLink } from "./Logout";
+import { LogoutLink } from "./LogoutLink";
+import { useState } from "react";
+import { Modal } from "./Modal";
+import { Container } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
+import { TripsNew } from "./TripsNew";
 
 export function Header() {
+  const [isNewTripVisible, setIsNewTripVisible] = useState(false);
+
+  const handleNewTripShow = () => {
+    setIsNewTripVisible(true);
+  };
+
+  const handleNewTripClose = () => {
+    setIsNewTripVisible(false);
+  };
+
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">
-        Where To Next?
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          {localStorage.jwt === undefined ? (
-            <>
-              <li class="nav-item">
-                <a class="nav-link" href="/signup">
-                  Signup
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">
-                  Login
-                </a>
-              </li>
-            </>
-          ) : (
-            <>
-              <li class="nav-item active">
-                <a class="nav-link" href="/">
-                  All Trips
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/trips/new">
-                  Add New Trip
-                </a>
-              </li>
-              <li class="nav-item">
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Modal show={isNewTripVisible} onClose={handleNewTripClose}>
+        <TripsNew onNewTripClose={handleNewTripClose} />
+      </Modal>
+      <Container>
+        <Navbar.Brand href="/">Where To Next?</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+
+          <Nav.Link href="#" onClick={handleNewTripShow}>
+            Add New Trip
+          </Nav.Link>
+          <li>
+            {localStorage.jwt === undefined ? (
+              <></>
+            ) : (
+              <li className="logout">
                 <LogoutLink />
               </li>
-            </>
-          )}
-        </ul>
-      </div>
-    </nav>
+            )}
+          </li>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 }

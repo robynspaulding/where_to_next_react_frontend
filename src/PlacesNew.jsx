@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import DateTimePicker from "react-datetime-picker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 export function PlacesNew(props) {
   const handleCreatePlace = (params) => {
@@ -21,8 +23,8 @@ export function PlacesNew(props) {
     event.target.reset;
   };
 
-  const [start, onChangeStart] = useState(new Date());
-  const [end, onChangeEnd] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   return (
     <div className="card-place-new" id="place-new">
@@ -43,10 +45,17 @@ export function PlacesNew(props) {
             <input type="text" name="image_url" />
           </div>
           <div>
-            Start date/time: <DateTimePicker onChange={onChangeStart} value={start} name="start_time" />
+            Start date:{" "}
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              value={startDate}
+              name="start_time"
+            />
           </div>
           <div>
-            End date/time: <DateTimePicker onChange={onChangeEnd} value={end} name="end_time" />
+            End date{" "}
+            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
           </div>
 
           <button type="submit" className="btn btn-outline-dark">

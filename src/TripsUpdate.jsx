@@ -5,11 +5,11 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 
-export function UpdatePlace(props) {
+export function TripsUpdate(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdatePlace(props.trip.id, params);
+    props.onUpdateTrip(props.trip.id, params);
     event.target.reset();
     window.location.href = "/";
   };
@@ -20,24 +20,16 @@ export function UpdatePlace(props) {
   return (
     <div>
       <Card style={{ width: "18rem" }}>
-        <Card.Header>Update Place Info</Card.Header>
+        <Card.Header>Update Trip Info</Card.Header>
         <form onSubmit={handleSubmit}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               {" "}
-              Update Name: <input type="text" name="name" />
+              Name of Trip: <input type="text" name="title" defaultValue={props.trip.title} />
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              Image: <input type="text" name="image_url" />
-            </ListGroup.Item>
-            <ListGroup.Item>
-              {" "}
-              Address: <input type="text" name="address" />
-            </ListGroup.Item>
-            <ListGroup.Item>
-              {" "}
-              Description: <input type="text" name="description" />
+              Image: <input type="text" name="image_url" defaultValue={props.trip.image_url} />
             </ListGroup.Item>
             <ListGroup.Item>
               Start Date:

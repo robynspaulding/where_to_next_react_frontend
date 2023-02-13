@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import DateTimePicker from "react-datetime-picker";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
 
 export function TripsNew() {
   const handleCreateTrip = (params) => {
@@ -11,8 +15,8 @@ export function TripsNew() {
     });
   };
 
-  const [start, onChangeStart] = useState(new Date());
-  const [end, onChangeEnd] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,26 +27,36 @@ export function TripsNew() {
 
   return (
     <div id="trip-new">
-      <form onSubmit={handleSubmit}>
-        <div className="card-body-new">
-          <h5>Add a New Trip</h5>
-          <div>
-            Title: <input type="text" name="title" />
-          </div>
-          <div>
-            Image: <input type="text" name="image_url" />
-          </div>
-          <div>
-            Start date/time: <DateTimePicker onChange={onChangeStart} value={start} name="start_time" />
-          </div>
-          <div>
-            End date/time: <DateTimePicker onChange={onChangeEnd} value={end} name="end_time" />
-          </div>
-          <button className="btn btn-outline-dark" type="submit">
-            Add Trip
-          </button>
-        </div>
-      </form>
+      <Card border="success" style={{ width: "18rem" }}>
+        <form onSubmit={handleSubmit}>
+          <Card.Header>Add a New Trip</Card.Header>
+          <Card.Body>
+            <Card.Text>
+              {" "}
+              Title: <input type="text" name="title" />
+            </Card.Text>
+            <Card.Text>
+              Image: <input type="text" name="image_url" />
+            </Card.Text>
+            <Card.Text>
+              Start date:
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                value={startDate}
+                name="start_time"
+              />
+            </Card.Text>
+            <Card.Text>
+              End date:
+              <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
+            </Card.Text>
+            <Button variant="success" size="md" type="submit">
+              Add Trip
+            </Button>
+          </Card.Body>
+        </form>
+      </Card>
     </div>
   );
 }

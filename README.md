@@ -2,13 +2,14 @@
 React.js Frontend
 
 
-Where To Next? is a travel planning app that allows a user to create a trip and add places they want to visit while they are on that trip. Within the trip show page -or rather where you can see the details of the trip and the places you want to go - there is a search bar that accesses a third-party API called <a href="https://serpapi.com/"> SerpApi </a> which scrapes Google results based on your search query and location input. 
+Where To Next? is a travel planning app that allows a user to create a trip and add places they want to visit while they are on that trip. 
+ Within the trip show page -or rather where you can see the details of the trip and the places you want to go - there is a search bar that accesses a third-party API called <a href="https://serpapi.com/"> SerpApi </a> which scrapes Google results based on your search query and location input. 
 
 # Technology used:
 - <a href="https://github.com/robynspaulding/where_to_next_react_frontend">React.js frontend - This Repo!</a>
 - <a href="https://github.com/robynspaulding/where_to_next_api">Ruby on Rails backend </a>
 - <a href="https://www.npmjs.com/package/react-datetime-picker">React DateTime Picker</a>
-- <a href="https://github.com/marnusw/date-fns-tz">Date-fns-tz</a>
+
 
 ## Installation
 

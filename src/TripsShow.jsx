@@ -14,14 +14,14 @@ export function TripsShow() {
   console.log(params);
   const [trip, setTrip] = useState({});
 
-  const handleShowUpdateTrip = () => {
+  const handleShowTripPlaces = () => {
     axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
       console.log(response.data);
       setTrip(response.data);
     });
   };
 
-  useEffect(handleShowUpdateTrip, []);
+  useEffect(handleShowTripPlaces, []);
 
   return (
     <div id="trip-show" className="row justify-content-center">
@@ -30,6 +30,7 @@ export function TripsShow() {
         <Card.Img variant="top" src={trip.image_url} />
         <Card.Body>
           <Card.Title>{trip.title}</Card.Title>
+          {/* {trip.id} */}
           <Card.Text>
             {moment(trip.start_time).format("LL")} - {moment(trip.end_time).format("LL")}
           </Card.Text>

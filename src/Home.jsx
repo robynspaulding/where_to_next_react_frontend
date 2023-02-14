@@ -19,7 +19,7 @@ export function Home() {
     });
   };
 
-  const handleShowUpdateTrip = (trip) => {
+  const handleShowTripPlaces = (trip) => {
     setIsTripUpdateVisable(true);
     setCurrentTrip(trip);
   };
@@ -67,7 +67,7 @@ export function Home() {
         <>
           <TripsIndex
             trips={trips}
-            onSelectUpdateTrip={handleShowUpdateTrip}
+            onSelectUpdateTrip={handleShowTripPlaces}
             // trip={currentTrip}
             onDestroyTrip={handleDestroyTrip}
           />

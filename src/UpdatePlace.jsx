@@ -9,7 +9,7 @@ export function UpdatePlace(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdatePlace(props.trip.id, params);
+    props.onUpdatePlace(props.place.id, params);
     event.target.reset();
     window.location.href = "/";
   };

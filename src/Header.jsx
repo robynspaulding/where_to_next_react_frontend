@@ -30,6 +30,8 @@ export function Header() {
           <Nav.Link href="#" onClick={handleNewTripShow}>
             Add New Trip
           </Nav.Link>
+        </Nav>
+        <Nav>
           <li>
             {localStorage.jwt === undefined ? (
               <></>
@@ -39,7 +41,6 @@ export function Header() {
               </li>
             )}
           </li>
-          <i class="bi bi-list mobile-nav-toggle"></i>
         </Nav>
       </Container>
     </Navbar>

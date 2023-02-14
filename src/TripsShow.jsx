@@ -13,6 +13,7 @@ export function TripsShow() {
   const params = useParams();
   console.log(params);
   const [trip, setTrip] = useState({});
+  const [currentPlace, setCurrentPlace] = useState([]);
 
   const handleShowTripPlaces = () => {
     axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
@@ -23,14 +24,17 @@ export function TripsShow() {
 
   useEffect(handleShowTripPlaces, []);
 
+  // const handleUpdatePlace = () => {
+  //   axios.patch("http://localhost:3000/places/" + )
+  // };
+
   return (
-    <div id="trip-show" className="row justify-content-center">
+    <div key={trip.id} id="trip-show" className="row justify-content-center">
       <h1>Trip Info</h1>
       <Card style={{ width: "30rem" }}>
         <Card.Img variant="top" src={trip.image_url} />
         <Card.Body>
           <Card.Title>{trip.title}</Card.Title>
-          {/* {trip.id} */}
           <Card.Text>
             {moment(trip.start_time).format("LL")} - {moment(trip.end_time).format("LL")}
           </Card.Text>
@@ -61,15 +65,6 @@ export function TripsShow() {
                   // onClick={() => }
                 >
                   Update Place Info
-                </Button>
-                <p></p>
-                <Button
-                  className="justify-content-end"
-                  variant="outline-danger"
-                  size="sm"
-                  // onClick={() => }
-                >
-                  Delete Place
                 </Button>
               </Card.Body>
             </Card>

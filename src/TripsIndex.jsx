@@ -8,10 +8,10 @@ import moment from "moment";
 export function TripsIndex(props) {
   return (
     <div id="trips-index" className="row justify-content-center">
-      <Row xs={1} md={3} className="g-4">
+      <Row xs={1} md={2} className="g-4">
         {props.trips.map((trip) => (
-          <Col>
-            <Card key={trip.id} style={{ width: "25rem" }}>
+          <Col key={trip.id}>
+            <Card style={{ width: "30rem" }}>
               <Card.Img variant="top" src={trip.image_url} />
               <Card.Body>
                 <Card.Title>{trip.title}</Card.Title>

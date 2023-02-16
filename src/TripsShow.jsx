@@ -48,7 +48,7 @@ export function TripsShow() {
         </Card.Body>
       </Card>
       <h1>Places to Visit</h1>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} md={3} className="g-4">
         {trip.places.map((place) => (
           <Col key={place.id}>
             <Card>

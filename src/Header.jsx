@@ -27,7 +27,7 @@ export function Header() {
     setIsSearchVisible(false);
   };
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Modal show={isNewTripVisible} onClose={handleNewTripClose}>
         <TripsNew />
       </Modal>
@@ -46,16 +46,16 @@ export function Header() {
             Search
           </Nav.Link>
         </Nav>
-        <Nav>
-          <li>
+        <Nav className="logout">
+          <Nav.Link>
             {localStorage.jwt === undefined ? (
               <></>
             ) : (
-              <li className="logout">
+              <Nav.Link>
                 <LogoutLink />
-              </li>
+              </Nav.Link>
             )}
-          </li>
+          </Nav.Link>
         </Nav>
       </Container>
     </Navbar>

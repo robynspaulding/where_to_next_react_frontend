@@ -12,8 +12,7 @@ import Row from "react-bootstrap/Row";
 export function TripsShow() {
   const params = useParams();
   console.log(params);
-  const [trip, setTrip] = useState({});
-  const [currentPlace, setCurrentPlace] = useState([]);
+  const [trip, setTrip] = useState({ places: [] });
 
   const handleShowTripPlaces = () => {
     axios.get("http://localhost:3000/trips/" + params.id + ".json").then((response) => {
@@ -22,11 +21,19 @@ export function TripsShow() {
     });
   };
 
-  useEffect(handleShowTripPlaces, []);
+  const handleDeletePlace = (placeId) => {
+    setTrip({ ...trip, places: trip.places.filter((p) => p.id !== placeId) });
+    axios
+      .delete(`http://localhost:3000/places/${placeId}.json`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        setTrip({ ...trip });
+      });
+  };
 
-  // const handleUpdatePlace = () => {
-  //   axios.patch("http://localhost:3000/places/" + )
-  // };
+  useEffect(handleShowTripPlaces, []);
 
   return (
     <div key={trip.id} id="trip-show" className="row justify-content-center">
@@ -42,14 +49,13 @@ export function TripsShow() {
       </Card>
       <h1>Places to Visit</h1>
       <Row xs={1} md={2} className="g-4">
-        {trip.places?.map((place) => (
-          <Col>
+        {trip.places.map((place) => (
+          <Col key={place.id}>
             <Card>
               <Card.Img variant="top" src={place.image_url} />
               <Card.Body>
                 <Card.Title>{place.name}</Card.Title>
                 <Card.Text>
-                  {/* <p>{place.id}</p> */}
                   address: {place.address}
                   <p></p>
                   date: {moment(place.start_time).format("LL")} - {moment(place.end_time).format("LL")}
@@ -57,14 +63,9 @@ export function TripsShow() {
                   {place.description}
                   <p></p>
                 </Card.Text>
-                <div>!update and delete are in progress!</div>
 
-                <Button
-                  variant="outline-primary"
-                  size="sm"
-                  // onClick={() => }
-                >
-                  Update Place Info
+                <Button variant="outline-danger" size="sm" onClick={() => handleDeletePlace(place.id)}>
+                  Delete Place
                 </Button>
               </Card.Body>
             </Card>
@@ -72,8 +73,6 @@ export function TripsShow() {
         ))}
       </Row>
 
-      <p></p>
-      <p></p>
       <Card style={{ width: "30rem" }}>
         <Card.Body>
           <Card.Text>
@@ -89,8 +88,6 @@ export function TripsShow() {
           </Card.Text>
         </Card.Body>
       </Card>
-      <p></p>
-      <p></p>
     </div>
   );
 }

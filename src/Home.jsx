@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 import { TripsUpdate } from "./TripsUpdate";
 import { Login } from "./Login";
 import { Signup } from "./Signup";
+import { UpdatePlace } from "./UpdatePlace";
 
 export function Home() {
   const [trips, setTrips] = useState([]);
@@ -53,6 +54,19 @@ export function Home() {
   };
   //____________________________
 
+  // const handleUpdatePlace = (placeId, params) => {
+  //   axios.patch(`http://localhost:3000/places/${placeId}.json`, params).then((response) => {
+  //     console.log(response.data);
+  //     const places = [
+  //       ...trip.places.reject((place) => {
+  //         place.id === placeId;
+  //       }),
+  //       response.data,
+  //     ];
+  //     setTrip({ ...trip, places });
+  //   });
+  // };
+
   useEffect(handleIndexTrips, []);
 
   return (
@@ -65,14 +79,10 @@ export function Home() {
         </>
       ) : (
         <>
-          <TripsIndex
-            trips={trips}
-            onSelectUpdateTrip={handleShowTripPlaces}
-            // trip={currentTrip}
-            onDestroyTrip={handleDestroyTrip}
-          />
+          <TripsIndex trips={trips} onSelectUpdateTrip={handleShowTripPlaces} onDestroyTrip={handleDestroyTrip} />
           <Modal show={isTripUpdateVisable} onClose={handleHideUpdatedTrip}>
             <TripsUpdate trip={currentTrip} onUpdateTrip={handleUpdateTrip} />
+            {/* <UpdatePlace onUpdatePlace={handleUpdatePlace} /> */}
           </Modal>
         </>
       )}

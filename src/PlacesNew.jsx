@@ -56,9 +56,9 @@ export function PlacesNew(props) {
             End date{" "}
             <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
           </div>
-
+          <p></p>
           <div className="d-grid gap-2">
-            <Button variant="success" size="md" type="submit">
+            <Button variant="outline-success" size="md" type="submit">
               Add Place to Trip
             </Button>
           </div>

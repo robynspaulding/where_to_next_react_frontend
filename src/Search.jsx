@@ -36,29 +36,20 @@ export function Search() {
           </div>
           <p></p>
           <div className="d-grid gap-2">
-            <Button variant="success" size="md" type="submit">
+            <Button variant="outline-primary" size="md" type="submit">
               Search
             </Button>
           </div>
         </div>
       </form>
       <div>
-        <p></p>
         {results.map((result) => (
-          <div>
+          <div key={result.title}>
             <h5>Name: {result.title}</h5>
-            <p>
-              Address: {result.address}
-              <p>
-                <p>
-                  Hours: {result.hours}
-                  <p>
-                    Description: {result.description}
-                    <p>Rating: {result.rating}</p>
-                  </p>
-                </p>
-              </p>
-            </p>
+            <p>Address: {result.address}</p>
+            <p>Hours: {result.hours}</p>
+            <p>Description: {result.description}</p>
+            <p>Rating: {result.rating}</p>
           </div>
         ))}
       </div>

@@ -54,18 +54,7 @@ export function Home() {
   };
   //____________________________
 
-  // const handleUpdatePlace = (placeId, params) => {
-  //   axios.patch(`http://localhost:3000/places/${placeId}.json`, params).then((response) => {
-  //     console.log(response.data);
-  //     const places = [
-  //       ...trip.places.reject((place) => {
-  //         place.id === placeId;
-  //       }),
-  //       response.data,
-  //     ];
-  //     setTrip({ ...trip, places });
-  //   });
-  // };
+
 
   useEffect(handleIndexTrips, []);
 

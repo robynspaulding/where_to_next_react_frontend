@@ -11,7 +11,6 @@ export function UpdatePlace(props) {
     const params = new FormData(event.target);
     props.onUpdatePlace(props.place.id, params);
     event.target.reset();
-    window.location.href = "/";
   };
 
   const [startDate, setStartDate] = useState(new Date());
@@ -25,19 +24,19 @@ export function UpdatePlace(props) {
           <ListGroup variant="flush">
             <ListGroup.Item>
               {" "}
-              Update Name: <input type="text" name="name" />
+              Update Name: <input type="text" name="name" defaultValue={props.place.name} />
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              Image: <input type="text" name="image_url" />
+              Image: <input type="text" name="image_url" defaultValue={props.place.image_url} />
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              Address: <input type="text" name="address" />
+              Address: <input type="text" name="address" defaultValue={props.place.address} />
             </ListGroup.Item>
             <ListGroup.Item>
               {" "}
-              Description: <input type="text" name="description" />
+              Description: <input type="text" name="description" defaultValue={props.place.description} />
             </ListGroup.Item>
             <ListGroup.Item>
               Start Date:

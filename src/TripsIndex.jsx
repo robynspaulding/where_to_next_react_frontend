@@ -8,6 +8,7 @@ import moment from "moment";
 export function TripsIndex(props) {
   return (
     <div id="trips-index" className="row justify-content-center">
+      <h1> My Trips </h1>
       <Row xs={1} md={2} className="g-4">
         {props.trips.map((trip) => (
           <Col key={trip.id}>

@@ -39,6 +39,7 @@ export function Header() {
           <img src="/images/logo.png" width="70" height="50" className="d-inline-block align-top" alt="" />
         </Navbar.Brand>
         <Nav className="me-auto">
+          <Nav.Link href="/">All My Trips</Nav.Link>
           <Nav.Link href="#" onClick={handleNewTripShow}>
             Add New Trip
           </Nav.Link>

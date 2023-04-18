@@ -27,18 +27,18 @@ export function TripsNew() {
 
   return (
     <div id="trip-new">
-      <Card border="success" style={{ width: "18rem" }}>
+      <Card border="success" style={{ width: "22rem" }}>
         <form onSubmit={handleSubmit}>
           <Card.Header>Add a New Trip</Card.Header>
-          <Card.Body>
-            <Card.Text>
+          <ListGroup>
+            <ListGroup.Item>
               {" "}
               Title: <input type="text" name="title" />
-            </Card.Text>
-            <Card.Text>
+            </ListGroup.Item>
+            <ListGroup.Item>
               Image: <input type="text" name="image_url" />
-            </Card.Text>
-            <Card.Text>
+            </ListGroup.Item>
+            <ListGroup.Item>
               Start date:
               <DatePicker
                 selected={startDate}
@@ -46,15 +46,15 @@ export function TripsNew() {
                 value={startDate}
                 name="start_time"
               />
-            </Card.Text>
-            <Card.Text>
+            </ListGroup.Item>
+            <ListGroup.Item>
               End date:
               <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} value={endDate} name="end_time" />
-            </Card.Text>
+            </ListGroup.Item>
             <Button variant="success" size="md" type="submit">
               Add Trip
             </Button>
-          </Card.Body>
+          </ListGroup>
         </form>
       </Card>
     </div>
